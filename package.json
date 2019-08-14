@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "debug": "node --inspect-brk index.js",
     "dev": "nodemon index.js",
     "db:create": "createdb coffee-orders-app",
     "db:init": "psql -f schema.sql coffee-orders-app && psql -f seed.sql coffee-orders-app",
@@ -17,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "pg-promise": "^9.0.0"
   },
   "devDependencies": {

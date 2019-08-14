@@ -33,4 +33,30 @@ class Coffee {
     }
 }
 
-module.exports = Coffee;
+
+function getAll() {
+    return db.any(`
+        select * from coffee
+        `)
+    // .then((data) => {
+    //     console.log('here is the data:');
+    //     console.log(data);
+    // })
+    .catch((error) => {
+        console.log('ruh roh....');
+        console.log(error);
+    });
+};
+
+
+function getOne(id) {
+    return db.one(
+            `select * from coffee where id=$1`, [id])
+    .catch((error) => {
+        console.log('ruh roh....');
+        console.log(error);
+    });
+};
+
+
+module.exports = {Coffee, getAll, getOne};
